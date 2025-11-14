@@ -21,7 +21,7 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'Welcome! | Florian Lup',
+  title: 'Welcome | Florian Lup',
   description:
     'Get fast, precise answers about my background, projects, and expertise.',
 };

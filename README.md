@@ -1,16 +1,14 @@
-# RAG Chatbot
+# Personal Chatbot
 
-AI chatbot that utilizes Retrieval-Augmented Generation (RAG) to provide
-contextually accurate responses. Built with Next.js, OpenAI & Pinecone.
+AI chatbot that provides contextually accurate responses using bio information
+embedded directly in the system prompt. Built with Next.js and OpenAI.
 
 ## Features
 
 - 🎨 **Modern UI**: Clean, responsive chat interface with React, Tailwind &
   Shadcn
-- 📄 **Knowledge Base Management**: Scripts for embedding and upserting content
-  into Pinecone
-- 🔍 **Semantic Retrieval**: Vector-based search for relevant context
-- 🤖 **Contextual Chat**: AI responses powered by retrieved context and OpenAI
+- 📄 **Embedded Bio Content**: Bio information is embedded directly in the system prompt
+- 🤖 **Contextual Chat**: AI responses powered by bio content and OpenAI
 
 ## Live Example
 
@@ -21,8 +19,7 @@ Check out a live example at
 
 - **Next.js 15** + **React 19** + **TypeScript**
 - **Tailwind CSS 4** + **Radix UI** + **shadcn/ui**
-- **OpenAI API** (chat completion + embeddings)
-- **Pinecone** (vector database)
+- **OpenAI API** (chat completion)
 
 ## Getting Started
 
@@ -30,7 +27,6 @@ Check out a live example at
 
 - Node.js 18+ and pnpm
 - OpenAI API key
-- Pinecone API key
 
 ### Installation
 
@@ -48,17 +44,12 @@ Check out a live example at
 
    ```env
    OPENAI_API_KEY=your_openai_api_key_here
-   PINECONE_API_KEY=your_pinecone_api_key_here
    NEXT_PUBLIC_SITE_URL=your_site_url_here
    ```
 
-3. **Prepare data and upload**
+3. **Customize bio content**
 
-   Create `documents/bio.md` with your content, then:
-
-   ```bash
-   pnpm upsert-bio
-   ```
+   Edit `lib/prompt.ts` and update the bio information in the `SYSTEM_PROMPT` constant.
 
 4. **Run development server**
 
@@ -67,15 +58,6 @@ Check out a live example at
    ```
 
    Open [http://localhost:3000](http://localhost:3000)
-
-### Pinecone Setup
-
-The `background-context` index will be created automatically when you run
-`pnpm upsert-bio`:
-
-- **Dimensions**: 1536
-- **Metric**: Cosine
-- **Embedding model**: text-embedding-3-small
 
 ## Project Structure
 
@@ -87,8 +69,7 @@ rag-chatbot/
 ├── components/           # React components
 │   ├── chat/             # Chat-specific components
 │   └── ui/               # Reusable UI components
-├── documents/bio.md      # Source data for RAG
-├── scripts/              # Data management scripts
+├── lib/prompt.ts          # System prompt with embedded bio content
 ├── tests/                # Comprehensive test suite
 └── lib/                  # Utilities and configs
 ├── hooks/                # Custom hooks
@@ -99,5 +80,3 @@ rag-chatbot/
 - `pnpm dev --turbopack` - Development server
 - `pnpm build` - Production build
 - `pnpm test` - Run Playwright tests
-- `pnpm upsert-bio` - Upload data to Pinecone
-- `pnpm delete-bio` - Clear Pinecone index

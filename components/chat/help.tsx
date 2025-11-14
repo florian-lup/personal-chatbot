@@ -27,8 +27,8 @@ const HelpDialogComponent = ({ children }: HelpDialogProps) => {
           <DialogTitle>About this Website</DialogTitle>
           <VisuallyHidden.Root>
             <DialogDescription>
-              This is an AI-powered personal website that uses
-              Retrieval-Augmented
+              This is an AI-powered personal website that reads directly from a
+              bio document to provide accurate answers.
             </DialogDescription>
           </VisuallyHidden.Root>
         </DialogHeader>
@@ -40,10 +40,9 @@ const HelpDialogComponent = ({ children }: HelpDialogProps) => {
             personally.
           </p>
           <p>
-            <strong>How it works:</strong> The AI uses Retrieval-Augmented
-            Generation (RAG), which means it can pull in relevant information
-            from my public documents and content to provide more accurate,
-            helpful answers.
+            <strong>How it works:</strong> The AI reads directly from my bio
+            document to provide accurate, helpful answers about my background,
+            projects, and expertise.
           </p>
           <p>
             <strong>Limitations:</strong> The AI tries its best, but it might

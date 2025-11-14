@@ -3,7 +3,6 @@ import { z } from 'zod';
 const envSchema = z.object({
   // Required API keys
   OPENAI_API_KEY: z.string().min(1, 'OpenAI API key is required'),
-  PINECONE_API_KEY: z.string().min(1, 'Pinecone API key is required'),
 
   // Environment
   NODE_ENV: z
