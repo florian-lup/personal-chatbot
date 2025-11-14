@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@pinecone-database/pinecone':
-        specifier: ^6.1.0
-        version: 6.1.0
       '@radix-ui/react-avatar':
         specifier: ^1.1.10
         version: 1.1.10(@types/react-dom@19.1.6(@types/react@19.1.7))(@types/react@19.1.7)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -42,8 +39,8 @@ importers:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       openai:
-        specifier: ^5.1.0
-        version: 5.2.0(zod@3.25.57)
+        specifier: ^6.9.0
+        version: 6.9.0(zod@3.25.57)
       react:
         specifier: ^19.0.0
         version: 19.1.0
@@ -696,10 +693,6 @@ packages:
   '@nolyfill/is-core-module@1.0.39':
     resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
-
-  '@pinecone-database/pinecone@6.1.0':
-    resolution: {integrity: sha512-g+hOT5pA/lt0ICZ949aQPkF5u4TDWZtfbwV+25ewcYSF9o2EBQLdrxMKSIfkESSM5FyizBct0Caq4CSYu5fbIw==}
-    engines: {node: '>=18.0.0'}
 
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
@@ -2827,12 +2820,12 @@ packages:
     resolution: {integrity: sha512-gXah6aZrcUxjWg2zR2MwouP2eHlCBzdV4pygudehaKXSGW4v2AsRQUK+lwwXhii6KFZcunEnmSUoYp5CXibxtA==}
     engines: {node: '>= 0.4'}
 
-  openai@5.2.0:
-    resolution: {integrity: sha512-b+Sf2Yk2eApDkhqHr7C4d5hux9gkHUvyqQ7RrdSfLsjrXkCZpJPqkME0u5Py7RPB28Ozz+RkJZpW7YPTOoChew==}
+  openai@6.9.0:
+    resolution: {integrity: sha512-n2sJRYmM+xfJ0l3OfH8eNnIyv3nQY7L08gZQu3dw6wSdfPtKAk92L83M2NIP5SS8Cl/bsBBG3yKzEOjkx0O+7A==}
     hasBin: true
     peerDependencies:
       ws: ^8.18.0
-      zod: ^3.23.8
+      zod: ^3.25 || ^4.0
     peerDependenciesMeta:
       ws:
         optional: true
@@ -4111,8 +4104,6 @@ snapshots:
       fastq: 1.19.1
 
   '@nolyfill/is-core-module@1.0.39': {}
-
-  '@pinecone-database/pinecone@6.1.0': {}
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
@@ -6519,7 +6510,7 @@ snapshots:
       define-properties: 1.2.1
       es-object-atoms: 1.1.1
 
-  openai@5.2.0(zod@3.25.57):
+  openai@6.9.0(zod@3.25.57):
     optionalDependencies:
       zod: 3.25.57
 

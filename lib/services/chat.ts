@@ -5,17 +5,8 @@ import { CHAT_CONFIG } from '@/lib/config';
 import { SYSTEM_PROMPT } from '@/lib/prompt';
 import type { ChatMessage } from '@/types';
 
-const openAIChoiceSchema = z.object({
-  message: z.object({
-    role: z.literal('assistant').optional(),
-    content: z.string().nullable(),
-  }),
-});
-
 const openAIResponseSchema = z.object({
-  choices: z
-    .array(openAIChoiceSchema)
-    .min(1, 'OpenAI response must have at least one choice'),
+  output_text: z.string().nullable(),
 });
 
 export async function chat(messages: ChatMessage[]): Promise<string> {
@@ -25,15 +16,18 @@ export async function chat(messages: ChatMessage[]): Promise<string> {
 
   const openai = getOpenAI();
 
-  const messagesForOpenAI = [
-    { role: 'system', content: SYSTEM_PROMPT } as const,
-    ...messages,
-  ] satisfies Parameters<typeof openai.chat.completions.create>[0]['messages'];
+  // Filter out system messages since we use instructions for system prompt
+  const messagesForOpenAI = messages.filter(
+    msg => msg.role !== 'system',
+  ) as Array<{ role: 'user' | 'assistant'; content: string }>;
 
-  const response = await openai.chat.completions.create(
+  const response = await openai.responses.create(
     {
       model: CHAT_CONFIG.model,
-      messages: messagesForOpenAI,
+      instructions: SYSTEM_PROMPT,
+      input: messagesForOpenAI,
+      reasoning: { effort: 'low' },
+      text: { verbosity: 'low' },
     },
     {
       timeout: 60000, // 60 second (1 minute) timeout
@@ -42,11 +36,6 @@ export async function chat(messages: ChatMessage[]): Promise<string> {
 
   // Validate OpenAI response structure
   const validatedResponse = openAIResponseSchema.parse(response);
-  const firstChoice = validatedResponse.choices[0];
-  if (!firstChoice) {
-    throw new Error('OpenAI returned no choices');
-  }
-
-  const assistantReply = firstChoice.message.content ?? '';
+  const assistantReply = validatedResponse.output_text ?? '';
   return assistantReply;
 }
