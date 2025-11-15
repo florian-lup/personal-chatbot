@@ -1,4 +1,4 @@
-import { Briefcase, FolderKanban, Code2, Gamepad2 } from 'lucide-react';
+import { Briefcase, Code2, Book, User } from 'lucide-react';
 import { memo } from 'react';
 
 import { Badge } from '../ui/badge';
@@ -11,19 +11,19 @@ const suggestedQuestions = [
     icon: Briefcase,
   },
   {
-    question: 'What kind of projects have you worked on?',
-    category: 'Projects',
-    icon: FolderKanban,
+    question: 'Can you tell me more about yourself?',
+    category: 'About me',
+    icon: User,
   },
   {
-    question: 'What technologies do you specialize in?',
+    question: 'What are your strongest skills?',
     category: 'Skills',
     icon: Code2,
   },
   {
     question: 'What are your interests outside of work?',
     category: 'Hobbies',
-    icon: Gamepad2,
+    icon: Book,
   },
 ];
 
