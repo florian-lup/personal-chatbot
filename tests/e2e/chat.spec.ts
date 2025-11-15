@@ -70,10 +70,10 @@ test.describe('Chat Functionality', () => {
     // Verify suggested questions are visible again
     await expect(page.getByText(BACKGROUND_QUESTION)).toBeVisible();
     await expect(
-      page.getByText('What kind of projects have you worked on?'),
+      page.getByText('Can you tell me more about yourself?'),
     ).toBeVisible();
     await expect(
-      page.getByText('What technologies do you specialize in?'),
+      page.getByText('What are your strongest skills?'),
     ).toBeVisible();
     await expect(
       page.getByText('What are your interests outside of work?'),
