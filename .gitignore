@@ -48,8 +48,4 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 
-bio.md
-
-.cursor/
-
 .vercel
