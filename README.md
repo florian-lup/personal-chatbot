@@ -1,14 +1,17 @@
 # Personal Chatbot
 
-AI chatbot that provides contextually accurate responses using bio information
-embedded directly in the system prompt. Built with Next.js and OpenAI.
+AI chatbot that provides contextually accurate responses using my bio
+information. Built with Next.js and OpenAI.
 
 ## Features
 
-- 🎨 **Modern UI**: Clean, responsive chat interface with React, Tailwind &
-  Shadcn
-- 📄 **Embedded Bio Content**: Bio information is embedded directly in the system prompt
-- 🤖 **Contextual Chat**: AI responses powered by bio content and OpenAI
+- 🎨 **Modern UI**: Clean, mobile-first, responsive chat interface
+- 🧪 **Comprehensive Tests**: Automated testing with Playwright (E2E) and Vitest
+  (unit/component)
+- 🔒 **Robust Security**: Rigorous Content Security Policy (CSP), core HTTP
+  security headers, server-side input validation (Zod), and runtime environment
+  variable protection ensure XSS, clickjacking, misconfiguration, and other
+  common web attacks are mitigated by default.
 
 ## Live Example
 
@@ -19,7 +22,7 @@ Check out a live example at
 
 - **Next.js 15** + **React 19** + **TypeScript**
 - **Tailwind CSS 4** + **Radix UI** + **shadcn/ui**
-- **OpenAI API** (chat completion)
+- **OpenAI** (Responses API)
 
 ## Getting Started
 
@@ -47,11 +50,7 @@ Check out a live example at
    NEXT_PUBLIC_SITE_URL=your_site_url_here
    ```
 
-3. **Customize bio content**
-
-   Edit `lib/prompt.ts` and update the bio information in the `SYSTEM_PROMPT` constant.
-
-4. **Run development server**
+3. **Run development server**
 
    ```bash
    pnpm dev
