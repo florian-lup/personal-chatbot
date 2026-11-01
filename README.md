@@ -6,8 +6,7 @@ information. Built with Next.js and OpenAI.
 ## Features
 
 - 🎨 **Modern UI**: Clean, mobile-first, responsive chat interface
-- 🧪 **Comprehensive Tests**: Automated testing with Playwright (E2E) and Vitest
-  (unit/component)
+- 🧪 **Unit Tests**: Automated testing with Vitest
 - 🔒 **Robust Security**: Rigorous Content Security Policy (CSP), core HTTP
   security headers, server-side input validation (Zod), and runtime environment
   variable protection ensure XSS, clickjacking, misconfiguration, and other
@@ -78,4 +77,4 @@ rag-chatbot/
 
 - `pnpm dev --turbopack` - Development server
 - `pnpm build` - Production build
-- `pnpm test` - Run Playwright tests
+- `pnpm test` - Run unit tests

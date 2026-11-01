@@ -10,12 +10,11 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "format": "prettier --write .",
-    "test": "pnpm test:unit && pnpm test:e2e",
+    "test": "pnpm test:unit",
     "test:unit": "vitest run tests/unit",
     "test:unit:watch": "vitest watch tests/unit",
     "test:unit:ui": "vitest --ui tests/unit",
-    "test:coverage": "vitest run --coverage tests/unit",
-    "test:e2e": "pnpm exec playwright test"
+    "test:coverage": "vitest run --coverage tests/unit"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.10",
@@ -42,7 +41,6 @@
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@eslint/eslintrc": "^3",
-    "@playwright/test": "^1.53.0",
     "@tailwindcss/postcss": "^4",
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^20",

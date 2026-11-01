@@ -45,8 +45,6 @@
     // Test and cache directories
     "coverage",
     "test-results",
-    "playwright-report",
-    "blob-report",
     ".cache",
     // Generated files
     "*.tsbuildinfo"

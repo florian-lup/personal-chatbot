@@ -43,10 +43,7 @@ const eslintConfig = [
       // Cache directories
       '.cache/**/*',
       'coverage/**/*',
-      'playwright-report/**/*',
       'test-results/**/*',
-      'blob-report/**/*',
-      'playwright/.cache/**/*',
 
       // Config files that don't need linting
       'pnpm-lock.yaml',
@@ -148,7 +145,6 @@ const eslintConfig = [
             '**/test/**',
             '**/tests/**',
             '**/scripts/**',
-            'playwright.config.ts',
             'vitest.config.ts',
             'vitest.config.browser.ts',
             'eslint.config.mjs',
