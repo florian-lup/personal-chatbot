@@ -16,6 +16,7 @@ describe('loadBio', () => {
     );
     expect(bio).toContain('Unstuck');
     expect(bio).toContain('Romanian — Native');
+    expect(bio).toContain('# Outfits');
   });
 
   it('is included in the system prompt after the instructions', () => {
@@ -26,6 +27,7 @@ describe('loadBio', () => {
     expect(bioStart).toBeGreaterThan(0);
     expect(profileStart).toBeGreaterThan(bioStart);
     expect(systemPrompt).not.toContain('# OUTPUT VERBOSITY');
+    expect(systemPrompt).toContain('[[gallery:outfits]]');
   });
 
   it('does not read the bio when the prompt module is imported', async () => {

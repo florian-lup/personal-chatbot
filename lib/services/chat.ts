@@ -2,6 +2,7 @@ import { z } from 'zod';
 
 import { getOpenAI } from '@/lib/clients/openai';
 import { CHAT_CONFIG } from '@/lib/config';
+import { withOutfitGallery } from '@/lib/gallery';
 import { getSystemPrompt } from '@/lib/prompt';
 import type { ChatMessage } from '@/types';
 
@@ -37,5 +38,5 @@ export async function chat(messages: ChatMessage[]): Promise<string> {
   // Validate OpenAI response structure
   const validatedResponse = openAIResponseSchema.parse(response);
   const assistantReply = validatedResponse.output_text ?? '';
-  return assistantReply;
+  return withOutfitGallery(messagesForOpenAI, assistantReply);
 }

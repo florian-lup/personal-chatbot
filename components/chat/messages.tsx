@@ -2,9 +2,12 @@ import { memo } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
+import { parseDisplayedMessage } from '@/lib/gallery';
 import type { ChatMessage as ChatMessageType } from '@/types';
 
 import { Card } from '../ui/card';
+
+import { OutfitCarousel } from './outfit-carousel';
 
 function ChatMessageComponent({ role, content }: ChatMessageType) {
   const isUser = role === 'user';
@@ -21,26 +24,31 @@ function ChatMessageComponent({ role, content }: ChatMessageType) {
     );
   }
 
+  const { text, showOutfits } = parseDisplayedMessage(content);
+
   return (
-    <div className="flex flex-col gap-2">
-      <Card className="bg-background w-full flex-1 border-none p-2 shadow-none">
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          className="prose prose-sm dark:prose-invert max-w-none break-words"
-          components={{
-            a: ({ ...props }) => (
-              <a
-                {...props}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary underline hover:opacity-80"
-              />
-            ),
-          }}
-        >
-          {content}
-        </ReactMarkdown>
-      </Card>
+    <div className="flex flex-col gap-3">
+      {text.length > 0 && (
+        <Card className="bg-background w-full flex-1 border-none p-2 shadow-none">
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            className="prose prose-sm dark:prose-invert max-w-none break-words"
+            components={{
+              a: ({ ...props }) => (
+                <a
+                  {...props}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary underline hover:opacity-80"
+                />
+              ),
+            }}
+          >
+            {text}
+          </ReactMarkdown>
+        </Card>
+      )}
+      {showOutfits && <OutfitCarousel />}
     </div>
   );
 }

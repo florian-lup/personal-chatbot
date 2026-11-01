@@ -1,4 +1,11 @@
-import { Briefcase, Code2, Book, User } from 'lucide-react';
+import {
+  Briefcase,
+  Code2,
+  FolderGit2,
+  Shirt,
+  User,
+  Workflow,
+} from 'lucide-react';
 import { memo } from 'react';
 
 import { Badge } from '../ui/badge';
@@ -6,14 +13,19 @@ import { Card } from '../ui/card';
 
 const suggestedQuestions = [
   {
+    question: 'What have you built outside of work?',
+    category: 'Projects',
+    icon: FolderGit2,
+  },
+  {
     question: "What's your work experience?",
     category: 'Experience',
     icon: Briefcase,
   },
   {
-    question: 'Can you tell me more about yourself?',
-    category: 'About me',
-    icon: User,
+    question: 'How have you improved a process at work?',
+    category: 'Process',
+    icon: Workflow,
   },
   {
     question: 'What are your strongest skills?',
@@ -21,9 +33,14 @@ const suggestedQuestions = [
     icon: Code2,
   },
   {
-    question: 'What are your interests outside of work?',
-    category: 'Hobbies',
-    icon: Book,
+    question: 'Can you tell me more about yourself?',
+    category: 'About me',
+    icon: User,
+  },
+  {
+    question: 'Show me some of your outfits',
+    category: 'Style',
+    icon: Shirt,
   },
 ];
 

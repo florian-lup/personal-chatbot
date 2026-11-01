@@ -10,6 +10,7 @@ let cachedBio: string | null = null;
  * into the biography block appended to the system prompt.
  *
  * Drop a new .md file in that folder to extend what the chatbot knows.
+ * A reload of this module picks up files added after the last successful read.
  * Prefix names with numbers (01-profile.md) to control order.
  * A successful read is cached for the lifetime of the server instance.
  * A failed read is not cached, so a later request can succeed once the files
