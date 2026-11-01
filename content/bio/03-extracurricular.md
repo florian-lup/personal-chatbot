@@ -1,32 +1,32 @@
-# Extracurricular Work
+# Extracurricular Work / Achievements
 
-## Playbook
+## Playbook — Founder & Product Builder
 
-Client: https://github.com/florian-lup/unstuck-client
+APP: https://github.com/florian-lup/playbook-app
 
-Backend: https://github.com/florian-lup/unstuck-backend
+API: https://github.com/florian-lup/playbook-api
 
-Website: https://www.unstuck.gg
+Demo: https://www.youtube.com/watch?v=6ZLgxszke9Y
 
-Demo: https://youtu.be/lmMq48mGAZE
+- Developed and launched an AI-powered gaming assistant for desktop, attracting
+  150+ users
+- Invited to publish on Overwolf, a major gaming apps distribution platform
+- Led early-stage fundraising discussions and co-founder outreach through Y
+  Combinator's Co-Founder Matching platform.
 
-Developed a cross-platform Electron desktop application providing AI-powered gaming assistance with real-time voice and text chat capabilities.
-
-- Electron desktop overlay application with React, TypeScript, and TailwindCSS
-- Low-latency voice chat using WebRTC and OpenAI Realtime API
-- JWT authentication with JWKS validation, RSA signature verification, and permission-based authorization
-- Auth0 authentication with OAuth 2.0 Device Flow and secure token management in system keychain
-- Stripe payment processing with webhook handling for subscription tier management
-- PostgreSQL database schema with SQLAlchemy ORM featuring async operations, Alembic migrations, and optimized indexes
-- OpenAI, Perplexity AI, and Tavily APIs for enhanced conversational AI and web search capabilities
-- RESTful API with FastAPI supporting text chat and voice chat endpoints
-
-Tech Stack: Electron, React, TypeScript, TailwindCSS, Python, FastAPI, PostgreSQL, SQLAlchemy, Alembic, Auth0, Stripe, OpenAI API, Perplexity AI, Tavily
+Tech Stack: Tauri, Rust, Svelte, TypeScript, Python, FastAPI, Supabase, OpenAI,
+Perplexity API
 
 ## E-commerce Business | Founder
-- Founded and operated an independent e-commerce business during university, generating over $10,000 in sales through Amazon
-- Managed end-to-end business operations, including product sourcing, inventory management, pricing, marketing and customer service
+
+- Founded and operated an independent e-commerce business during university,
+  generating over $10,000 in sales through Amazon
+- Managed end-to-end business operations, including product sourcing, inventory
+  management, pricing, marketing and customer service
 
 ## Fashion Content Creator
-- Generated over 700k organic views through independently produced men's fashion content
-- Gained recognition from Charles Tyrwhitt, a leading British menswear brand, which featured my content
+
+- Generated over 700k organic views through independently produced men's fashion
+  content
+- Gained recognition from Charles Tyrwhitt, a leading British menswear brand,
+  which featured my content

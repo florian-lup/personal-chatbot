@@ -14,7 +14,7 @@ describe('loadBio', () => {
     expect(bio.indexOf('# Work Experience Summary')).toBeLessThan(
       bio.indexOf('# Skills'),
     );
-    expect(bio).toContain('Unstuck');
+    expect(bio).toContain('Playbook');
     expect(bio).toContain('Romanian — Native');
     expect(bio).toContain('# Outfits');
   });

@@ -14,12 +14,12 @@ import { Badge } from '../ui/badge';
 import { Card } from '../ui/card';
 
 const suggestedQuestions = [
-    {
-    question: 'Can you tell me more about yourself?',
+  {
+    question: 'Tell me more about yourself',
     category: 'About me',
     icon: User,
   },
-    {
+  {
     question: "What's your work experience?",
     category: 'Experience',
     icon: Briefcase,

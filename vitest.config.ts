@@ -15,11 +15,7 @@ export default defineConfig({
     include: ['tests/unit/**/*.{test,spec}.{ts,tsx,js,jsx}'],
 
     // Exclude patterns
-    exclude: [
-      '**/node_modules/**',
-      '**/dist/**',
-      '**/test-results/**',
-    ],
+    exclude: ['**/node_modules/**', '**/dist/**', '**/test-results/**'],
 
     // Enable global test APIs (describe, it, expect, etc.)
     globals: true,

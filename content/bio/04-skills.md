@@ -23,7 +23,8 @@
 
 ## Tools
 
-- Runway, Deepgram, Midjourney, Google Veo, OpenAI Sora, Canva, Jasper, ElevenLabs
+- Runway, Deepgram, Midjourney, Google Veo, OpenAI Sora, Canva, Jasper,
+  ElevenLabs
 - ChatGPT, Gemini, Perplexity, Claude
 - Microsoft Office 365, Google Workspace, Notion
 - Discord, Teams, Slack, Zoom
