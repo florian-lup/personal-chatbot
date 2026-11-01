@@ -1,8 +1,27 @@
 # Extracurricular Work
 
-## Software Development
+## Playbook
 
-I turn ideas into products by driving AI-powered coding tools — Cursor, GitHub Copilot, OpenAI Codex, and Claude Code. I dig into documentation to steer LLMs through iterative prompts, review the generated code, and patch issues to ship responsive front ends and lightweight back ends.
+Client: https://github.com/florian-lup/unstuck-client
+
+Backend: https://github.com/florian-lup/unstuck-backend
+
+Website: https://www.unstuck.gg
+
+Demo: https://youtu.be/lmMq48mGAZE
+
+Developed a cross-platform Electron desktop application providing AI-powered gaming assistance with real-time voice and text chat capabilities.
+
+- Electron desktop overlay application with React, TypeScript, and TailwindCSS
+- Low-latency voice chat using WebRTC and OpenAI Realtime API
+- JWT authentication with JWKS validation, RSA signature verification, and permission-based authorization
+- Auth0 authentication with OAuth 2.0 Device Flow and secure token management in system keychain
+- Stripe payment processing with webhook handling for subscription tier management
+- PostgreSQL database schema with SQLAlchemy ORM featuring async operations, Alembic migrations, and optimized indexes
+- OpenAI, Perplexity AI, and Tavily APIs for enhanced conversational AI and web search capabilities
+- RESTful API with FastAPI supporting text chat and voice chat endpoints
+
+Tech Stack: Electron, React, TypeScript, TailwindCSS, Python, FastAPI, PostgreSQL, SQLAlchemy, Alembic, Auth0, Stripe, OpenAI API, Perplexity AI, Tavily
 
 ## E-commerce Business | Founder
 - Founded and operated an independent e-commerce business during university, generating over $10,000 in sales through Amazon
