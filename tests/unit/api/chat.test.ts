@@ -182,7 +182,8 @@ describe('POST /api/chat', () => {
   });
 
   it('should return 500 when chat function throws an error', async () => {
-    const errorMessage = 'OpenAI API error';
+    const errorMessage =
+      '429 You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.';
     vi.mocked(chat).mockRejectedValueOnce(new Error(errorMessage));
 
     const request = new NextRequest(CHAT_API_URL, {
@@ -199,7 +200,7 @@ describe('POST /api/chat', () => {
     const data = (await response.json()) as { reply?: string; error?: string };
 
     expect(response.status).toBe(500);
-    expect(data).toEqual({ error: errorMessage });
+    expect(data).toEqual({ error: 'Service temporarily unavailable.' });
     expect(chat).toHaveBeenCalledTimes(1);
   });
 
@@ -220,7 +221,7 @@ describe('POST /api/chat', () => {
     const data = (await response.json()) as { reply?: string; error?: string };
 
     expect(response.status).toBe(500);
-    expect(data).toEqual({ error: 'Server error' });
+    expect(data).toEqual({ error: 'Service temporarily unavailable.' });
     expect(chat).toHaveBeenCalledTimes(1);
   });
 
@@ -241,6 +242,6 @@ describe('POST /api/chat', () => {
     const data = (await response.json()) as { reply?: string; error?: string };
 
     expect(response.status).toBe(500);
-    expect(data).toEqual({ error: 'Server error' });
+    expect(data).toEqual({ error: 'Service temporarily unavailable.' });
   });
 });

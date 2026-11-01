@@ -5,6 +5,8 @@ import { z } from 'zod';
 import { chat } from '@/lib/services/chat';
 import type { ChatMessage, ChatApiError } from '@/types';
 
+const SERVICE_UNAVAILABLE_MESSAGE = 'Service temporarily unavailable.';
+
 export async function POST(req: NextRequest) {
   const messageSchema = z.object({
     role: z.enum(['user', 'assistant', 'system']),
@@ -35,8 +37,8 @@ export async function POST(req: NextRequest) {
     const reply = await chat(messages);
     return NextResponse.json({ reply });
   } catch (err: unknown) {
-    const error = err as Error;
-    const resp: ChatApiError = { error: error.message || 'Server error' };
+    console.error('Chat request failed', err);
+    const resp: ChatApiError = { error: SERVICE_UNAVAILABLE_MESSAGE };
     return NextResponse.json(resp, { status: 500 });
   }
 }
