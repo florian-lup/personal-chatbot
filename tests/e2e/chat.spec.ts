@@ -3,6 +3,17 @@ import { test, expect } from '@playwright/test';
 test.describe('Chat Functionality', () => {
   const BACKGROUND_QUESTION = "What's your background and experience?";
   test('should complete the core chat flow', async ({ page }) => {
+    // Intercept the chat API so tests pass in CI without a real OpenAI key.
+    // page.route captures the fetch inside the browser before it reaches the
+    // Next.js server, so the OpenAI client is never invoked.
+    await page.route('/api/chat', route =>
+      route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify({ reply: 'Mocked AI response for testing.' }),
+      }),
+    );
+
     // 1. Navigate to the chat page
     await page.goto('/');
 

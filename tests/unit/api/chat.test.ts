@@ -225,6 +225,57 @@ describe('POST /api/chat', () => {
     expect(chat).toHaveBeenCalledTimes(1);
   });
 
+  it('logs only a sanitized summary when chat fails', async () => {
+    const secret = 'sk-test-secret-key-should-not-leak';
+    const failure = new Error(
+      `upstream failed Authorization: Bearer ${secret}`,
+    );
+    failure.stack = `Error: ${secret}\n    at secret/internal.ts:1:1`;
+    Object.assign(failure, {
+      status: 401,
+      code: 'invalid_api_key',
+      headers: { authorization: `Bearer ${secret}` },
+      error: { message: secret },
+    });
+    vi.mocked(chat).mockRejectedValueOnce(failure);
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    try {
+      const request = new NextRequest(CHAT_API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          messages: [{ role: 'user', content: 'Hello' }],
+        }),
+      });
+
+      const response = await POST(request);
+      const data = (await response.json()) as {
+        reply?: string;
+        error?: string;
+      };
+      const logged = errorSpy.mock.calls
+        .flat()
+        .map(part => (typeof part === 'string' ? part : JSON.stringify(part)))
+        .join(' ');
+
+      expect(response.status).toBe(500);
+      expect(data).toEqual({ error: 'Service temporarily unavailable.' });
+      expect(logged).not.toContain(secret);
+      expect(logged).not.toContain('secret/internal.ts');
+      expect(logged).not.toContain('Authorization');
+      expect(errorSpy).toHaveBeenCalledWith('Chat request failed', {
+        name: 'Error',
+        status: 401,
+        code: 'invalid_api_key',
+      });
+    } finally {
+      errorSpy.mockRestore();
+    }
+  });
+
   it('should handle non-Error objects thrown by chat function', async () => {
     vi.mocked(chat).mockRejectedValueOnce('String error');
 

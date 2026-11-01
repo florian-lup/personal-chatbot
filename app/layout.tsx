@@ -33,14 +33,14 @@ export default async function RootLayout({
 }>) {
   const nonce = (await headers()).get('x-nonce') ?? '';
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
           nonce={nonce}
         >
