@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 import { getOpenAI } from '@/lib/clients/openai';
 import { CHAT_CONFIG } from '@/lib/config';
-import { SYSTEM_PROMPT } from '@/lib/prompt';
+import { getSystemPrompt } from '@/lib/prompt';
 import type { ChatMessage } from '@/types';
 
 const openAIResponseSchema = z.object({
@@ -24,10 +24,10 @@ export async function chat(messages: ChatMessage[]): Promise<string> {
   const response = await openai.responses.create(
     {
       model: CHAT_CONFIG.model,
-      instructions: SYSTEM_PROMPT,
+      instructions: getSystemPrompt(),
       input: messagesForOpenAI,
-      reasoning: { effort: 'low' },
-      text: { verbosity: 'low' },
+      reasoning: { effort: 'medium' },
+      text: { verbosity: 'medium' },
     },
     {
       timeout: 60000, // 60 second (1 minute) timeout

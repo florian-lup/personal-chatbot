@@ -81,3 +81,5 @@ export async function POST(req: NextRequest) {
 
 export const revalidate = 0; // no ISR
 export const dynamic = 'force-dynamic';
+// Bio files are read from disk. This route must stay on the Node.js runtime.
+export const runtime = 'nodejs';

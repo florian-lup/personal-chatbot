@@ -7,6 +7,13 @@ const nextConfig: NextConfig = {
   // Disable the X-Powered-By header for security
   poweredByHeader: false,
 
+  // The chat route reads content/bio from disk when a request builds the
+  // system prompt. Next.js file tracing does not follow that read, so the
+  // markdown must be copied into the function bundle.
+  outputFileTracingIncludes: {
+    '/api/chat': ['./content/bio/**/*'],
+  },
+
   async headers() {
     return Promise.resolve([
       {

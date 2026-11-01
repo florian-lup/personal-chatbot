@@ -6,7 +6,7 @@ import { Card } from '../ui/card';
 
 const suggestedQuestions = [
   {
-    question: "What's your background and experience?",
+    question: "What's your work experience?",
     category: 'Experience',
     icon: Briefcase,
   },

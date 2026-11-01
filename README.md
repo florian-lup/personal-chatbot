@@ -67,7 +67,9 @@ rag-chatbot/
 ├── components/           # React components
 │   ├── chat/             # Chat-specific components
 │   └── ui/               # Reusable UI components
-├── lib/prompt.ts          # System prompt with embedded bio content
+├── content/bio/           # Markdown bio files, loaded into the system prompt
+├── lib/bio.ts             # Reads content/bio at runtime
+├── lib/prompt.ts          # System prompt instructions
 ├── tests/                # Comprehensive test suite
 └── lib/                  # Utilities and configs
 ├── hooks/                # Custom hooks
