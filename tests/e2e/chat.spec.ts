@@ -59,7 +59,7 @@ test.describe('Chat Functionality', () => {
     await page.waitForTimeout(3000);
 
     // 5. Click new chat
-    // The "New Chat" button should now be visible in the header since we have messages
+    // The "New Chat" button should now be visible in the composer since we have messages
     await expect(page.getByRole('button', { name: 'New Chat' })).toBeVisible();
     await page.getByRole('button', { name: 'New Chat' }).click();
 

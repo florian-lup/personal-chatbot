@@ -1,7 +1,8 @@
-import { ArrowUp } from 'lucide-react';
+import { ArrowUp, RotateCcw } from 'lucide-react';
 import { memo } from 'react';
 
 import { useEnterSubmit } from '@/hooks';
+import { cn } from '@/lib/utils';
 
 import { Button } from '../ui/button';
 import { Textarea } from '../ui/textarea';
@@ -10,6 +11,7 @@ interface ChatInputProps {
   message: string;
   setMessage: (message: string) => void;
   onSendMessage: () => void;
+  onNewChat: () => void;
   isTyping: boolean;
   hasMessages: boolean;
 }
@@ -18,6 +20,7 @@ const ChatInputComponent = ({
   message,
   setMessage,
   onSendMessage,
+  onNewChat,
   isTyping,
   hasMessages,
 }: ChatInputProps) => {
@@ -46,20 +49,38 @@ const ChatInputComponent = ({
             handleChange(e.target.value);
           }}
           onKeyDown={handleKeyDown}
-          className="no-scrollbar max-h-60 min-h-36 w-full resize-none rounded-none border-none pr-12 shadow-none"
+          className={cn(
+            'no-scrollbar max-h-60 min-h-36 w-full resize-none rounded-none border-none shadow-none',
+            hasMessages ? 'pr-40' : 'pr-12',
+          )}
           rows={2}
           disabled={isTyping}
         />
 
-        {/* Send button */}
-        <Button
-          size="icon"
-          onClick={handleSendMessage}
-          disabled={!message.trim() || isTyping}
-          className="absolute right-3 bottom-3 z-10 size-9 rounded-full"
-        >
-          <ArrowUp className="size-4" />
-        </Button>
+        <div className="absolute right-3 bottom-3 z-10 flex items-center gap-2">
+          {hasMessages && (
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              className="text-muted-foreground"
+              onClick={onNewChat}
+              disabled={isTyping}
+            >
+              <RotateCcw className="size-4" />
+              New Chat
+            </Button>
+          )}
+          <Button
+            type="button"
+            size="icon"
+            onClick={handleSendMessage}
+            disabled={!message.trim() || isTyping}
+            className="size-9 rounded-full"
+          >
+            <ArrowUp className="size-4" />
+          </Button>
+        </div>
       </div>
     </div>
   );

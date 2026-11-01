@@ -43,7 +43,7 @@ export function ChatInterface() {
   return (
     <div className="flex h-screen flex-col">
       {/* Header */}
-      <Header hasMessages={messages.length > 0} onNewChat={reset} />
+      <Header />
 
       {/* Main chat content area */}
       <div className="no-scrollbar flex-1 overflow-y-auto">
@@ -96,6 +96,7 @@ export function ChatInterface() {
           message={message}
           setMessage={setMessage}
           onSendMessage={handleSendClick}
+          onNewChat={reset}
           isTyping={isTyping}
           hasMessages={messages.length > 0}
         />
